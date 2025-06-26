@@ -8,7 +8,7 @@ import { TestimonialsSection } from "./sections/TestimonialsSection";
 
 export const Web = (): JSX.Element => {
   return (
-    <div className="bg-white flex flex-col items-center w-full">
+    <div className="bg-white flex flex-col items-center w-full overflow-x-hidden">
       <NavigationSection />
       <ContactSection />
       <AboutMeSection />
