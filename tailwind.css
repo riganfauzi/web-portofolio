@@ -5,6 +5,17 @@
   .all-\[unset\] {
     all: unset;
   }
+
+  .fade-up-initial {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+
+  .fade-up-animate {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 :root {
@@ -55,6 +66,11 @@
 @tailwind utilities;
 
 @layer base {
+
+  html {
+    scroll-behavior: smooth;
+  }
+
   :root {
     --background: 0 0% 100%;
     --foreground: 222.2 47.4% 11.2%;
