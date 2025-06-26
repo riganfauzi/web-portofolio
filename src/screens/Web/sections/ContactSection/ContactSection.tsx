@@ -1,14 +1,49 @@
 import { FileTextIcon } from "lucide-react";
 import { Button } from "../../../../components/ui/button";
+import { useState, useRef, useEffect } from "react";
 
 export const ContactSection = (): JSX.Element => {
+  
+  const sectionRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+  
+
   return (
-    <section className="flex w-full items-center justify-between px-6 py-16 md:px-[90px] md:py-[66px] relative">
+    <section
+      id="header"
+      ref={sectionRef}
+      className={`flex w-full items-center justify-between px-6 py-16 md:px-[90px] md:py-[66px] relative mt-[120px] fade-up-initial ${isVisible ? 'fade-up-animate' : ''}`}>
       <div className="flex flex-col w-full md:w-[537px] items-start gap-[90px] relative">
         <div className="flex flex-col items-start justify-center gap-6 relative self-stretch w-full">
           <div className="flex flex-col items-start gap-3 relative self-stretch w-full">
             <h2 className="relative self-stretch mt-[-1.00px] font-heading-2 font-[number:var(--heading-2-font-weight)] text-foundation-blackblack-400 text-[length:var(--heading-2-font-size)] tracking-[var(--heading-2-letter-spacing)] leading-[var(--heading-2-line-height)] [font-style:var(--heading-2-font-style)]">
-              Hello
+              Hallo 👋
             </h2>
 
             <h1 className="relative self-stretch [font-family:'Poppins',Helvetica] font-semibold text-[52px] tracking-[0] leading-[normal]">

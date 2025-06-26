@@ -9,14 +9,15 @@ import {
 export const NavigationSection = (): JSX.Element => {
   // Navigation menu items data
   const navItems = [
-    { label: "Home", href: "#" },
-    { label: "About Me", href: "#" },
-    { label: "Project", href: "#" },
-    { label: "Testimonials", href: "#" },
+    { label: "Home", href: "#header" },
+    { label: "About Me", href: "#about-me" },
+    { label: "Project", href: "#projects" },
+    { label: "Skills", href: "#testimonials" },
+    { label: "Testimonials", href: "#testimonials" },
   ];
 
   return (
-    <header className="flex w-full items-center justify-between px-[30px] py-10 bg-white">
+    <header className="flex w-full items-center justify-between px-[30px] py-10 bg-white/80 fixed top-0 z-50 backdrop-blur-lg">
       {/* Logo/Brand Name */}
       <div className="inline-flex items-start gap-2.5 pl-[60px] relative">
         <h1 className="relative w-fit mt-[-1.00px] font-['Poppins',Helvetica] font-normal text-2xl leading-6">
@@ -49,9 +50,12 @@ export const NavigationSection = (): JSX.Element => {
           variant="outline"
           className="p-[15px] rounded-[5px] border-2 border-solid border-[#7456ff] bg-transparent"
         >
+
+          <a href="#footer">
           <span className="font-heading-6 font-[number:var(--heading-6-font-weight)] text-pr-lavender text-[length:var(--heading-6-font-size)] tracking-[var(--heading-6-letter-spacing)] leading-[var(--heading-6-line-height)] [font-style:var(--heading-6-font-style)]">
             Contact Me
-          </span>
+            </span>
+            </a>
         </Button>
       </div>
     </header>
