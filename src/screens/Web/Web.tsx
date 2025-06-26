@@ -1,5 +1,5 @@
 import { AboutMeSection } from "./sections/AboutMeSection";
-import { ContactSection } from "./sections/ContactSection";
+import { HeaderSection } from "./sections/HeaderSection";
 import { FooterSection } from "./sections/FooterSection";
 import { NavigationSection } from "./sections/NavigationSection/NavigationSection";
 import { ProjectsSection } from "./sections/ProjectsSection";
@@ -10,7 +10,7 @@ export const Web = (): JSX.Element => {
   return (
     <div className="bg-white flex flex-col items-center w-full overflow-x-hidden">
       <NavigationSection />
-      <ContactSection />
+      <HeaderSection />
       <AboutMeSection />
       <ProjectsSection />
       <SkillsSection />

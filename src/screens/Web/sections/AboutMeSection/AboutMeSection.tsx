@@ -26,7 +26,7 @@ export const AboutMeSection = (): JSX.Element => {
           
           if (entry.isIntersecting) {
             setIsVisible(true);
-            observer.unobserve(entry.target); 
+            // observer.unobserve(entry.target); 
           }
         });
       },
@@ -50,22 +50,30 @@ export const AboutMeSection = (): JSX.Element => {
     <section
       id="about-me"
       ref={sectionRef}
-      className={`w-full py-16 mt-[120px] bg-foundation-bluelight-active fade-up-initial ${isVisible ? 'fade-up-animate' : ''}`}> 
-      <div className="flex flex-col items-start gap-16 max-w-[1260px] mx-auto ">
-        <h2 className="font-heading-2 text-4xl font-semibold text-foundation-blackblack-400 underline text-center w-full">
+      className={`w-full py-8 sm:py-12 md:py-16 mt-8 sm:mt-12 md:mt-16 lg:mt-[120px] bg-foundation-bluelight-active fade-up-initial ${isVisible ? 'fade-up-animate' : ''}`}> 
+      <div className="flex flex-col items-start gap-8 sm:gap-12 md:gap-16 max-w-[1260px] mx-auto px-6 sm:px-8 md:px-12 lg:px-16">
+        <h2 className="font-heading-2 text-2xl sm:text-3xl md:text-4xl font-semibold text-foundation-blackblack-400 underline text-center w-full">
           About Me
         </h2>
 
-        <div className="flex flex-col md:flex-row items-start gap-16 w-full">
-          <img src="/assets/images/avatar.png" alt="Avatar" className="max-w-full max-h-full object-contain" width={400} height={400} />
+        <div className="flex flex-col lg:flex-row items-start gap-8 sm:gap-12 md:gap-16 w-full">
+          {/* Avatar Image */}
+          <div className="w-full lg:w-auto flex justify-center lg:justify-start">
+            <img 
+              src="/assets/images/avatar.png" 
+              alt="Avatar" 
+              className="max-w-full h-auto object-contain w-64 sm:w-80 md:w-96 lg:w-[400px] max-h-64 sm:max-h-80 md:max-h-96 lg:max-h-[400px]" 
+            />
+          </div>
 
-          <Card className="border-none bg-transparent shadow-none">
+          {/* Text Content */}
+          <Card className="border-none bg-transparent shadow-none w-full lg:flex-1">
             <CardContent className="p-0">
-              <p className="font-poppins text-[32px] text-justify text-[#3d3d3d]">
+              <p className="font-poppins text-lg sm:text-xl md:text-2xl lg:text-3xl text-justify text-[#3d3d3d] leading-relaxed">
                 {displayedText}{" "}
                 {fullText.length > maxLength && ( 
                   <span
-                    className=" text-[#7456ff] cursor-pointer font-semibold"
+                    className="text-[#7456ff] cursor-pointer font-semibold hover:underline transition-all duration-200"
                     onClick={toggleExpand} 
                   >
                     {isExpanded ? "show less" : "show more"} 

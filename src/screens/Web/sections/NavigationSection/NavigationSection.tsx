@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Button } from "../../../../components/ui/button";
 import {
   NavigationMenu,
@@ -5,59 +6,85 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
 } from "../../../../components/ui/navigation-menu";
+import { Menu, X } from "lucide-react";
 
 export const NavigationSection = (): JSX.Element => {
-  // Navigation menu items data
+  const [isMobileOpen, setIsMobileOpen] = useState(false);
+
   const navItems = [
     { label: "Home", href: "#header" },
     { label: "About Me", href: "#about-me" },
     { label: "Project", href: "#projects" },
-    { label: "Skills", href: "#testimonials" },
+    { label: "Skills", href: "#skills" },
     { label: "Testimonials", href: "#testimonials" },
   ];
 
   return (
-    <header className="flex w-full items-center justify-between px-[30px] py-10 bg-white/80 fixed top-0 z-50 backdrop-blur-lg">
-      {/* Logo/Brand Name */}
-      <div className="inline-flex items-start gap-2.5 pl-[60px] relative">
-        <h1 className="relative w-fit mt-[-1.00px] font-['Poppins',Helvetica] font-normal text-2xl leading-6">
-          <span className="font-semibold text-[#7456ff] leading-[0.1px]">
-            Rigan
-          </span>
-          <span className="font-semibold text-[#3d3d3d]">NurFauzi</span>
+    <header className="fixed top-0 left-0 w-full z-50 bg-white/80 backdrop-blur-lg px-6 py-4 shadow-md">
+      <div className="flex items-center justify-between">
+        {/* Logo */}
+        <h1 className="text-xl font-semibold">
+          <span className="text-pr-lavender">Rigan</span>
+          <span className="text-[#3d3d3d]">NurFauzi</span>
         </h1>
-      </div>
 
-      {/* Navigation Menu */}
-      <div className="inline-flex items-center gap-10 pr-[60px] relative">
-        <NavigationMenu>
-          <NavigationMenuList className="flex gap-10">
-            {navItems.map((item, index) => (
-              <NavigationMenuItem key={index}>
-                <NavigationMenuLink
-                  href={item.href}
-                  className="font-heading-6 font-[number:var(--heading-6-font-weight)] text-foundation-blackblack-400 text-[length:var(--heading-6-font-size)] tracking-[var(--heading-6-letter-spacing)] leading-[var(--heading-6-line-height)] [font-style:var(--heading-6-font-style)]"
-                >
-                  {item.label}
-                </NavigationMenuLink>
-              </NavigationMenuItem>
-            ))}
-          </NavigationMenuList>
-        </NavigationMenu>
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex items-center gap-8">
+          <NavigationMenu>
+            <NavigationMenuList className="flex gap-6">
+              {navItems.map((item) => (
+                <NavigationMenuItem key={item.href}>
+                  <NavigationMenuLink
+                    href={item.href}
+                    className="text-[#3d3d3d] text-base font-medium hover:text-pr-lavender transition-colors"
+                  >
+                    {item.label}
+                  </NavigationMenuLink>
+                </NavigationMenuItem>
+              ))}
+            </NavigationMenuList>
+          </NavigationMenu>
 
-        {/* Contact Button */}
-        <Button
-          variant="outline"
-          className="p-[15px] rounded-[5px] border-2 border-solid border-[#7456ff] bg-transparent"
+          <Button
+            variant="outline"
+            className="px-4 py-2 border-2 border-pr-lavender text-pr-lavender"
+          >
+            <a href="#footer" className="font-heading-6">Contact Me</a>
+          </Button>
+        </div>
+
+        {/* Mobile Menu Toggle */}
+        <button
+          className="md:hidden"
+          onClick={() => setIsMobileOpen(!isMobileOpen)}
+          aria-label="Toggle Menu"
         >
-
-          <a href="#footer">
-          <span className="font-heading-6 font-[number:var(--heading-6-font-weight)] text-pr-lavender text-[length:var(--heading-6-font-size)] tracking-[var(--heading-6-letter-spacing)] leading-[var(--heading-6-line-height)] [font-style:var(--heading-6-font-style)]">
-            Contact Me
-            </span>
-            </a>
-        </Button>
+          {isMobileOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
       </div>
+
+      {/* Mobile Menu Dropdown */}
+      {isMobileOpen && (
+        <div className="flex flex-col gap-4 mt-4 md:hidden">
+          {navItems.map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              onClick={() => setIsMobileOpen(false)}
+              className="text-[#3d3d3d] text-base font-medium hover:text-pr-lavender transition-colors"
+            >
+              {item.label}
+            </a>
+          ))}
+          <a
+            href="#footer"
+            onClick={() => setIsMobileOpen(false)}
+            className="mt-2 border-2 border-pr-lavender rounded px-4 py-2 text-pr-lavender font-heading-6 text-center"
+          >
+            Contact Me
+          </a>
+        </div>
+      )}
     </header>
   );
 };

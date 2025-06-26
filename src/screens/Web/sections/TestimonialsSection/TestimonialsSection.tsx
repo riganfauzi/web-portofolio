@@ -104,7 +104,7 @@ export const TestimonialsSection = (): JSX.Element => {
             Autoplay({
               delay: 3500,
               stopOnInteraction: false,
-              stopOnMouseEnter: true,
+              stopOnMouseEnter: false,
             }),
           ]}
           setApi={setApi}

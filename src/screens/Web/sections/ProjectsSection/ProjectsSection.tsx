@@ -2,7 +2,7 @@ import { Card, CardContent } from "../../../../components/ui/card";
 import { useState, useRef, useEffect } from "react";
 
 export const ProjectsSection = (): JSX.Element => {
-  
+
   const sectionRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -31,7 +31,7 @@ export const ProjectsSection = (): JSX.Element => {
       }
     };
   }, []);
-  
+
   const projects = [
     {
       title: "UI/UX Design",
@@ -40,7 +40,7 @@ export const ProjectsSection = (): JSX.Element => {
     {
       title: "UI/UX Design",
       image: "/assets/images/karyapro.png",
-      
+
     },
     {
       title: "Mobile Apps",
@@ -74,30 +74,29 @@ export const ProjectsSection = (): JSX.Element => {
           </div>
         </div>
 
-        {/* Grid Layout with Gaps */}
-        <div className="flex flex-wrap justify-center gap-x-6 gap-y-24">
+        <div className="flex flex-nowrap overflow-x-auto md:flex-wrap md:overflow-x-visible justify-start md:justify-center gap-x-6 gap-y-24 pb-4 hide-scrollbar">
           {projects.map((project, index) => (
             <Card
               key={index}
-              className="w-[416px] h-[508px] shadow-[0_12px_32px_12px_#a693ff40] flex-shrink-0"
+              className="w-[350px] h-[420px] shadow-[0_12px_32px_12px_#a693ff40] flex-shrink-0" 
               style={{
                 backgroundSize: "100% 100%",
               }}
             >
-              <div className="w-full h-[65px] mt-11">
-                <div className="flex w-full h-[42px] items-start px-[37px]">
-                  <div className="flex-1 mt-[-1.00px] mb-[-5.00px] font-['Poppins',Helvetica] font-semibold text-foundationbluenormal text-[32px] tracking-[-0.48px] leading-[normal]">
+              <div className="w-full h-[55px] mt-8">
+                <div className="flex w-full h-[38px] items-start px-[30px]">
+                  <div className="flex-1 mt-[-1.00px] mb-[-5.00px] font-['Poppins',Helvetica] font-semibold text-foundationbluenormal text-[28px] tracking-[-0.42px] leading-[normal]">
                     {project.title}
                   </div>
                 </div>
               </div>
 
-              <CardContent className="p-0 w-full h-[351px] mt-[82px]">
-                <div className="relative h-[339px] mt-3">
-                  <div className="absolute w-[328px] h-[317px] top-0 left-11 bg-[#757575] rounded-[35px] opacity-50" />
-                  <div className="absolute w-[374px] h-[314px] top-[25px] left-[21px] bg-[#9e9d9d] rounded-[35px]" />
+              <CardContent className="p-0 w-full h-[290px] mt-[70px]">
+                <div className="relative h-[280px] mt-3">
+                  <div className="absolute w-[280px] h-[260px] top-0 left-9 bg-[#757575] rounded-[30px] opacity-50" />
+                  <div className="absolute w-[315px] h-[258px] top-[20px] left-[18px] bg-[#9e9d9d] rounded-[30px]" />
                   <img
-                    className="absolute w-[416px] h-[289px] top-[50px] left-0 object-cover"
+                    className="absolute w-[350px] h-[240px] top-[40px] left-0 object-cover"
                     alt={`${project.title} Project`}
                     src={project.image}
                   />
