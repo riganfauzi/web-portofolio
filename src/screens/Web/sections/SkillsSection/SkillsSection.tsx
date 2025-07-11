@@ -1,64 +1,54 @@
-import { useState, useRef, useEffect } from "react"; 
+import { useRef} from "react";
+import { Card, CardContent, CardTitle } from "../../../../components/ui/card";
 
 export const SkillsSection = (): JSX.Element => {
   const sectionRef = useRef(null);
-  const [isVisible, setIsVisible] = useState(false);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      {
-        threshold: 0.1,
-      }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
-  }, []);
-  const skills = [
+  const technicalSkills = [
     {
       name: "Figma",
       image: "/assets/images/figma.png",
-      background: "bg-[url(/rectangle-20.png)]",
-      imageStyles: "w-[137px] h-[147px] top-5 left-[23px]",
+      description: "A modern UI/UX design tool used for prototyping and collaborative interface design.",
     },
     {
       name: "Flutter",
       image: "/assets/images/flutter.png",
-      background: "bg-[url(/rectangle-18.png)]",
-      imageStyles: "w-[166px] h-[166px] top-2 left-2",
+      description: "A cross-platform framework for building mobile applications using a single codebase.",
+    },
+    {
+      name: "Dart",
+      image: "/assets/images/dart.png",
+      description: "The programming language behind Flutter, designed for fast, scalable, and structured apps.",
     },
     {
       name: "CSS",
       image: "/assets/images/css.png",
-      background: "bg-[url(/rectangle-18-1.png)]",
-      imageStyles: "w-[166px] h-[166px] top-2 left-2",
+      description: "A styling language for creating responsive and visually appealing web interfaces.",
     },
     {
       name: "React",
       image: "/assets/images/react.png",
-      background: "bg-[url(/rectangle-18-2.png)]",
-      imageStyles: "w-[166px] h-[166px] top-2 left-2",
+      description: "A JavaScript library for building fast, dynamic, and interactive user interfaces.",
+    },
+    {
+      name: "TypeScript",
+      image: "/assets/images/typescript.png",
+      description: "A strongly typed superset of JavaScript that enhances code quality and scalability.",
     },
     {
       name: "HTML",
       image: "/assets/images/html.png",
-      background: "bg-[url(/rectangle-17.png)]",
-      imageStyles: "w-[166px] h-[166px] top-2 left-2",
+      description: "The core markup language used to structure web content semantically.",
+    },
+    {
+      name: "Git",
+      image: "/assets/images/git.png",
+      description: "A distributed version control system for tracking changes and collaborating on code.",
+    },
+    {
+      name: "Tailwind CSS",
+      image: "/assets/images/tailwind.png",
+      description: "A utility-first CSS framework for quickly building modern and responsive designs.",
     },
   ];
 
@@ -66,25 +56,45 @@ export const SkillsSection = (): JSX.Element => {
     <section
       id="skills"
       ref={sectionRef}
-      className={`relative w-full py-[90px] mt-16 fade-up-initial ${isVisible ? 'fade-up-animate' : ''}`}>
-      <div className="px-[30px] md:px-[90px]">
-        <div className="relative mb-[200px] text-center">
+      className={`relative w-full py-[90px] mt-12`}
+      data-aos="fade-up" 
+      data-aos-duration="1000" 
+    >
+      <div className="px-6 md:px-20">
+        <div className="relative mb-24 text-center">
           <h2 className="text-4xl font-heading-2 font-semibold underline text-foundation-blackblack-400 relative z-10">
             Tools and Skills
           </h2>
-          <div className="absolute top-[-120px] left-[-500px] text-[200px] font-semibold font-['Poppins',Helvetica] text-transparent [-webkit-text-stroke:1px_#84838333] tracking-[0] whitespace-nowrap z-0">
+          <div className="absolute top-[-120px] left-1/2 -translate-x-1/2 text-[200px] font-semibold font-['Poppins',Helvetica] text-transparent [-webkit-text-stroke:1px_#84838333] tracking-[0] whitespace-nowrap z-0">
             TOOLS AND SKILLS
           </div>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-16 md:gap-22 ">
-          {skills.map((skill, index) => (
-            <div key={index} className={`relative w-[182px] h-[182px] ${skill.background} bg-[100%_100%] border-none flex items-center justify-center`}>
-              <img
-                className={'absolute object-cover ${skill.imageStyles}'}
-                src={skill.image}
-                alt={skill.name} />
-            </div>
+        <div className="w-full max-w-7xl mx-auto flex flex-wrap justify-center gap-x-6 gap-y-8">
+          {technicalSkills.map((skill, index) => (
+            <Card
+              key={index}
+              className="w-[90%] sm:w-[47%] md:w-[31%] lg:w-[23%] xl:w-[18%]
+              min-h-[240px] flex flex-col items-center justify-center p-4
+              bg-white rounded-xl shadow-md hover:shadow-xl hover:scale-[1.03]
+              hover:bg-[#ECE9FF] transition-all duration-300 ease-in-out cursor-pointer group text-center"
+            >
+              <CardContent className="flex flex-col items-center text-center p-0">
+                <div className="w-20 h-20 flex items-center justify-center mb-4 bg-white rounded-md overflow-hidden transition-colors duration-300 group-hover:bg-[#ECE9FF]">
+                  <img
+                    src={skill.image}
+                    alt={skill.name}
+                    className="max-w-full max-h-full object-contain"
+                  />
+                </div>
+                <CardTitle className="text-lg font-semibold text-foundation-blackblack-400 group-hover:text-[#5D45CC] transition-colors duration-300">
+                  {skill.name}
+                </CardTitle>
+                <p className="text-xs text-gray-700 mt-2 hidden md:block group-hover:text-gray-800 transition-colors duration-300">
+                  {skill.description}
+                </p>
+              </CardContent>
+            </Card>
           ))}
         </div>
       </div>

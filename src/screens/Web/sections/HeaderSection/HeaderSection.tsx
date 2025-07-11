@@ -3,7 +3,7 @@ import { Button } from "../../../../components/ui/button";
 import { useState, useRef, useEffect } from "react";
 
 export const HeaderSection = (): JSX.Element => {
-  
+
   const sectionRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -13,7 +13,6 @@ export const HeaderSection = (): JSX.Element => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setIsVisible(true);
-            // observer.unobserve(entry.target);
           }
         });
       },
@@ -32,13 +31,39 @@ export const HeaderSection = (): JSX.Element => {
       }
     };
   }, []);
+
   
+  const [hasShownSessionWelcome, setHasShownSessionWelcome] = useState<boolean>(() => {
+    try {
+      const welcomeStatus = sessionStorage.getItem('sessionWelcomeShown');
+      return welcomeStatus ? JSON.parse(welcomeStatus) : false;
+    } catch (error) {
+      console.error("Failed to read from sessionStorage:", error);
+      return false;
+    }
+  });
+  
+  useEffect(() => {
+    if (isVisible && !hasShownSessionWelcome) {
+      
+      console.log("Selamat datang kembali!"); 
+      try {
+        sessionStorage.setItem('sessionWelcomeShown', JSON.stringify(true));
+        setHasShownSessionWelcome(true);
+      } catch (error) {
+        console.error("Failed to write to sessionStorage:", error);
+      }
+    }
+  }, [isVisible, hasShownSessionWelcome]);
 
   return (
     <section
       id="header"
       ref={sectionRef}
-      className={`flex flex-col lg:flex-row w-full items-center justify-between px-6 py-8 sm:px-8 sm:py-12 md:px-12 md:py-16 lg:px-[90px] lg:py-[66px] relative mt-8 sm:mt-12 md:mt-16 lg:mt-[120px] fade-up-initial ${isVisible ? 'fade-up-animate' : ''}`}>
+      className={`flex flex-col lg:flex-row w-full items-center justify-between px-6 py-8 sm:px-8 sm:py-12 md:px-12 md:py-16 lg:px-[90px] lg:py-[66px] relative mt-4 sm:mt-8 md:mt-12 lg:mt-[80px]`}
+      data-aos="fade-up" 
+      data-aos-duration="1000" 
+    >
       
       {/* Text Content */}
       <div className="flex flex-col w-full lg:w-[537px] items-start gap-8 sm:gap-12 md:gap-16 lg:gap-[90px] relative order-2 lg:order-1">

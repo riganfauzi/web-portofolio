@@ -1,36 +1,9 @@
 import { Card, CardContent } from "../../../../components/ui/card";
-import { useState, useRef, useEffect } from "react";
+import { useRef } from "react";
 
 export const ProjectsSection = (): JSX.Element => {
 
   const sectionRef = useRef(null);
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      {
-        threshold: 0.1,
-      }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
-  }, []);
 
   const projects = [
     {
@@ -60,7 +33,11 @@ export const ProjectsSection = (): JSX.Element => {
     <section
       id="projects"
       ref={sectionRef}
-      className={`relative w-full py-[90px] mt-16 fade-up-initial ${isVisible ? 'fade-up-animate' : ''}`} >
+      // Hapus kelas animasi kustom, tambahkan data-aos
+      className={`relative w-full py-[90px] mt-12`}
+      data-aos="fade-up" // AOS animation
+      data-aos-duration="1000" // Durasi animasi
+    >
       <div className="px-[30px] md:px-[90px]">
         {/* Title Section */}
         <div className="relative w-full h-[300px] mb-16">
@@ -74,11 +51,13 @@ export const ProjectsSection = (): JSX.Element => {
           </div>
         </div>
 
-        <div className="flex flex-nowrap overflow-x-auto md:flex-wrap md:overflow-x-visible justify-start md:justify-center gap-x-6 gap-y-24 pb-4 hide-scrollbar">
+        <div className="flex flex-nowrap overflow-x-auto md:flex-wrap md:overflow-x-visible justify-start md:justify-center gap-x-12 gap-y-24 pb-4 hide-scrollbar">
           {projects.map((project, index) => (
             <Card
               key={index}
-              className="w-[350px] h-[420px] shadow-[0_12px_32px_12px_#a693ff40] flex-shrink-0" 
+              className="w-[calc(100vw-60px)] sm:w-[350px] h-[420px] shadow-[0_12px_32px_12px_#a693ff40] flex-shrink-0
+                         transition-all duration-300 ease-in-out
+                         hover:bg-foundation-bluelight-active hover:shadow-[0_12px_32px_12px_#7456ff80] cursor-pointer"
               style={{
                 backgroundSize: "100% 100%",
               }}
