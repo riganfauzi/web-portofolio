@@ -56,7 +56,7 @@ export const ProjectsSection = (): JSX.Element => {
               key={index}
               className="w-[calc(100vw-60px)] sm:w-[350px] h-[420px] shadow-[0_12px_32px_12px_#a693ff40] flex-shrink-0
                          transition-all duration-300 ease-in-out
-                         hover:bg-foundation-bluelight-active hover:shadow-[0_12px_32px_12px_#7456ff80] cursor-pointer"
+                         hover:bg-[#ECE9FF] hover:shadow-[0_12px_32px_12px_#7456ff80] cursor-pointer"
               style={{
                 backgroundSize: "100% 100%",
               }}
