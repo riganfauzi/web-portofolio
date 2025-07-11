@@ -7,13 +7,12 @@ Selamat datang di portofolio web saya! Proyek ini menampilkan pekerjaan dan keah
 Saya adalah seorang UI/UX Designer yang bersemangat dengan pengalaman 2 tahun dalam menciptakan produk digital yang intuitif dan berpusat pada pengguna. Saya percaya bahwa desain yang baik adalah perpaduan antara estetika dan fungsionalitas, dan saya selalu berusaha untuk mengubah masalah yang kompleks menjadi solusi yang elegan dan menyenangkan.
 
 Keahlian utama saya meliputi:
-* Figma untuk wireframing dan prototyping
-* User Research & Usability Testing
-* HTML, CSS, JavaScript (React)
+
+- Figma untuk wireframing dan prototyping
+- User Research & Usability Testing
+- HTML, CSS, JavaScript (React)
 
 Saya sangat antusias dalam mempelajari teknologi desain terbaru dan berkolaborasi dalam proyek-proyek yang menantang.
-
-## Personal Branding
 
 ## Personal Branding
 
@@ -24,8 +23,8 @@ Misi saya adalah **menerjemahkan ide-ide kompleks menjadi antarmuka yang sederha
 ## Kontak
 
 Untuk pertanyaan bisnis atau kolaborasi, jangan ragu untuk menghubungi saya melalui:
-* **Email:** riganfauzi@gmail.com
-* **LinkedIn:** https://www.linkedin.com/in/rigannurfauzi/
+
+- **Email:** riganfauzi@gmail.com
+- **LinkedIn:** https://www.linkedin.com/in/rigannurfauzi/
 
 ---
-
