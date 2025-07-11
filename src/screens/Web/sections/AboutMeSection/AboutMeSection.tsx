@@ -13,13 +13,13 @@ export const AboutMeSection = (): JSX.Element => {
   const maxLength = 350;
 
   const toggleExpand = () => {
-    if (isAnimating) return; // Prevent multiple clicks during animation
+    if (isAnimating) return; 
     
     setIsAnimating(true);
     setIsExpanded((prevIsExpanded: boolean) => {
       const newState = !prevIsExpanded;
       
-      // Reset animation state after transition completes
+      
       setTimeout(() => {
         setIsAnimating(false);
       }, 500);
@@ -28,7 +28,7 @@ export const AboutMeSection = (): JSX.Element => {
     });
   };
 
-  // Get the text to display based on expanded state
+  
   const getDisplayText = () => {
     if (isExpanded) {
       return fullText;
@@ -36,22 +36,22 @@ export const AboutMeSection = (): JSX.Element => {
     return fullText.substring(0, maxLength) + '...';
   };
 
-  // Calculate actual height for smooth transitions
+  
   const [collapsedHeight, setCollapsedHeight] = useState<number>(0);
   const [expandedHeight, setExpandedHeight] = useState<number>(0);
 
   useEffect(() => {
     if (textRef.current) {
-      // Measure collapsed height
+      
       const originalText = textRef.current.textContent;
       textRef.current.textContent = fullText.substring(0, maxLength) + '...';
       const collapsed = textRef.current.scrollHeight;
       
-      // Measure expanded height
+      
       textRef.current.textContent = fullText;
       const expanded = textRef.current.scrollHeight;
       
-      // Restore original text
+      
       textRef.current.textContent = originalText;
       
       setCollapsedHeight(collapsed);

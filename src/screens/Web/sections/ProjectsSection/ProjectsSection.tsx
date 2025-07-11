@@ -33,20 +33,19 @@ export const ProjectsSection = (): JSX.Element => {
     <section
       id="projects"
       ref={sectionRef}
-      // Hapus kelas animasi kustom, tambahkan data-aos
-      className={`relative w-full py-[90px] mt-12`}
-      data-aos="fade-up" // AOS animation
-      data-aos-duration="1000" // Durasi animasi
+      className={`relative w-full py-[32px] mt-2 sm:mt-4 md:mt-6`}
+      data-aos="fade-up"
+      data-aos-duration="1000" 
     >
       <div className="px-[30px] md:px-[90px]">
         {/* Title Section */}
-        <div className="relative w-full h-[300px] mb-16">
-          <div className="absolute w-full top-[135px] left-0 font-normal text-foundation-blackblack-400 text-4xl text-center">
+        <div className="relative w-full h-[240px] mb-12">
+          <div className="absolute w-full top-[105px] left-0 font-normal text-foundation-blackblack-400 text-4xl text-center">
             <span className="font-heading-2 underline text-[length:var(--heading-2-font-size)] font-[number:var(--heading-2-font-weight)] tracking-[var(--heading-2-letter-spacing)] leading-[var(--heading-2-line-height)]">
               Projects
             </span>
           </div>
-          <div className="absolute w-full h-[300px] top-0 left-[-135px] [-webkit-text-stroke:1px_#84838333] font-['Poppins',Helvetica] font-semibold text-transparent text-[200px] text-justify leading-[normal]">
+          <div className="absolute w-full h-[300px] top-0 left-[-135px] [-webkit-text-stroke:1px_#84838333] font-['Poppins',Helvetica] font-semibold text-transparent text-[160px] text-justify leading-[normal]">
             MY PROJECT
           </div>
         </div>
