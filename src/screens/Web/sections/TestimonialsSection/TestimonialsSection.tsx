@@ -121,9 +121,9 @@ export const TestimonialsSection = (): JSX.Element => {
                 key={index}
                 className="px-2 md:px-4 basis-[90%] sm:basis-[70%] md:basis-[60%] lg:basis-[50%] xl:basis-[40%]"
               >
-                <Card className="group w-full max-w-[600px] mx-auto h-full bg-[#ffffffcc] rounded-[20px] shadow-[0px_6px_32px_#00000026] backdrop-blur-lg hover:bg-foundation-bluenormal-active transition-all duration-500 ease-in-out transform hover:scale-[1.02] hover:shadow-[0px_8px_40px_#00000033]">
-                  <CardContent className="p-6 flex flex-row items-start gap-6 h-full">
-                    <Avatar className="w-[60px] h-[60px] flex-shrink-0 transition-transform duration-300 group-hover:scale-110">
+                <Card className="group w-full max-w-[600px] mx-auto h-[320px] sm:h-[340px] md:h-[360px] lg:h-[320px] bg-[#ffffffcc] rounded-[20px] shadow-[0px_6px_32px_#00000026] backdrop-blur-lg hover:bg-foundation-bluenormal-active transition-all duration-500 ease-in-out transform hover:scale-[1.02] hover:shadow-[0px_8px_40px_#00000033]">
+                  <CardContent className="p-4 sm:p-5 md:p-6 flex flex-col sm:flex-row items-start gap-4 sm:gap-6 h-full">
+                    <Avatar className="w-[50px] h-[50px] sm:w-[60px] sm:h-[60px] flex-shrink-0 transition-transform duration-300 group-hover:scale-110">
                       <AvatarImage
                         src={testimonial.image}
                         alt={testimonial.name}
@@ -133,13 +133,15 @@ export const TestimonialsSection = (): JSX.Element => {
                         {testimonial.name.charAt(0)}
                       </AvatarFallback>
                     </Avatar>
-                    <div className="flex flex-col gap-2">
-                      <span className="font-semibold group-hover:text-white text-foundation-blackblack-400 text-[20px] transition-colors duration-300 ease-in-out">
+                    <div className="flex flex-col gap-2 flex-1 overflow-hidden">
+                      <span className="font-semibold group-hover:text-white text-foundation-blackblack-400 text-[18px] sm:text-[20px] transition-colors duration-300 ease-in-out">
                         {testimonial.name}
                       </span>
-                      <p className="group-hover:text-white text-foundation-blackblack-400 text-[16px] leading-relaxed text-justify transition-colors duration-300 ease-in-out">
-                        {testimonial.text}
-                      </p>
+                      <div className="flex-1 overflow-hidden">
+                        <p className="group-hover:text-white text-foundation-blackblack-400 text-[14px] sm:text-[15px] md:text-[16px] leading-relaxed text-justify transition-colors duration-300 ease-in-out overflow-hidden">
+                          {testimonial.text}
+                        </p>
+                      </div>
                     </div>
                   </CardContent>
                 </Card>
