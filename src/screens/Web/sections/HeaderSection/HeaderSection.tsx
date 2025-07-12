@@ -60,7 +60,7 @@ export const HeaderSection = (): JSX.Element => {
     <section
       id="header"
       ref={sectionRef}
-      className={`flex flex-col lg:flex-row w-full items-center justify-between px-6 py-8 sm:px-8 sm:py-12 md:px-12 md:py-16 lg:px-[90px] lg:py-[66px] relative mt-4 sm:mt-8 md:mt-12 lg:mt-[80px]`}
+      className={`flex flex-col lg:flex-row w-full items-center justify-between px-6 py-8 sm:px-8 sm:py-12 md:px-12 md:py-16 lg:px-[90px] lg:py-[66px] relative mt-12 sm:mt-8 md:mt-12 lg:mt-[80px]`}
       data-aos="fade-up" 
       data-aos-duration="1000" 
     >
