@@ -69,12 +69,12 @@ export const SkillsSection = (): JSX.Element => {
             TOOLS AND SKILLS
           </div>
         </div>
-
-        <div className="w-full max-w-7xl mx-auto flex flex-wrap justify-center gap-x-6 gap-y-8">
+        <div className="flex flex-nowrap md:flex-wrap overflow-x-auto md:overflow-visible snap-x snap-mandatory scroll-pl-6
+                        justify-start md:justify-center w-full max-w-7xl mx-auto gap-x-6 gap-y-8 pb-4 hide-scrollbar">
           {technicalSkills.map((skill, index) => (
             <Card
               key={index}
-              className="w-[90%] sm:w-[47%] md:w-[31%] lg:w-[23%] xl:w-[18%]
+              className="snap-start flex-shrink-0 w-[calc(80vw-48px)] sm:w-[calc(50%-12px)] md:w-[calc(33.333%-16px)] lg:w-[calc(25%-18px)] xl:w-[calc(20%-20px)]
               min-h-[240px] flex flex-col items-center justify-center p-4
               bg-white rounded-xl shadow-md hover:shadow-xl hover:scale-[1.03]
               hover:bg-[#ECE9FF] transition-all duration-300 ease-in-out cursor-pointer group text-center"
