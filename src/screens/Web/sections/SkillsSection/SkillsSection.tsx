@@ -5,51 +5,60 @@ export const SkillsSection = (): JSX.Element => {
   const sectionRef = useRef(null);
 
   const technicalSkills = [
-    {
-      name: "Figma",
-      image: "/assets/images/figma.png",
-      description: "A modern UI/UX design tool used for prototyping and collaborative interface design.",
-    },
-    {
-      name: "Flutter",
-      image: "/assets/images/flutter.png",
-      description: "A cross-platform framework for building mobile applications using a single codebase.",
-    },
-    {
-      name: "Dart",
-      image: "/assets/images/dart.png",
-      description: "The programming language behind Flutter, designed for fast, scalable, and structured apps.",
-    },
-    {
-      name: "CSS",
-      image: "/assets/images/css.png",
-      description: "A styling language for creating responsive and visually appealing web interfaces.",
-    },
-    {
-      name: "React",
-      image: "/assets/images/react.png",
-      description: "A JavaScript library for building fast, dynamic, and interactive user interfaces.",
-    },
-    {
-      name: "TypeScript",
-      image: "/assets/images/typescript.png",
-      description: "A strongly typed superset of JavaScript that enhances code quality and scalability.",
-    },
-    {
-      name: "HTML",
-      image: "/assets/images/html.png",
-      description: "The core markup language used to structure web content semantically.",
-    },
-    {
-      name: "Git",
-      image: "/assets/images/git.png",
-      description: "A distributed version control system for tracking changes and collaborating on code.",
-    },
-    {
-      name: "Tailwind CSS",
-      image: "/assets/images/tailwind.png",
-      description: "A utility-first CSS framework for quickly building modern and responsive designs.",
-    },
+     {
+    name: "Figma",
+    image: "/assets/images/figma.png",
+    description:
+      "Skilled in designing intuitive user interfaces, creating interactive prototypes, and collaborating efficiently with design and development teams using Figma.",
+  },
+  {
+    name: "Flutter",
+    image: "/assets/images/flutter.png",
+    description:
+      "Experienced in building fast and responsive cross-platform mobile applications using Flutter’s rich widget library and efficient architecture.",
+  },
+  {
+    name: "Dart",
+    image: "/assets/images/dart.png",
+    description:
+      "Proficient in writing clean, structured, and scalable Dart code, the primary language for Flutter app development.",
+  },
+  {
+    name: "CSS",
+    image: "/assets/images/css.png",
+    description:
+      "Expertise in styling layouts, animations, and responsive designs with CSS to deliver optimal web experiences across devices.",
+  },
+  {
+    name: "React",
+    image: "/assets/images/react.png",
+    description:
+      "Develop dynamic and reusable user interface components in React to create seamless and interactive web applications.",
+  },
+  {
+    name: "TypeScript",
+    image: "/assets/images/typescript.png",
+    description:
+      "Use TypeScript to write strongly typed code that enhances code quality, maintainability, and scalability in complex projects.",
+  },
+  {
+    name: "HTML",
+    image: "/assets/images/html.png",
+    description:
+      "Solid understanding of semantic HTML to ensure accessibility and improve SEO for web pages.",
+  },
+  {
+    name: "Git",
+    image: "/assets/images/git.png",
+    description:
+      "Manage version control and collaborate effectively using Git for clean project history and teamwork.",
+  },
+  {
+    name: "Tailwind CSS",
+    image: "/assets/images/tailwind.png",
+    description:
+      "Utilize Tailwind CSS’s utility-first approach for rapid, consistent, and customizable styling of modern web designs.",
+  },
   ];
 
   return (
